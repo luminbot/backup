@@ -1,7 +1,7 @@
 local httpService = game:GetService('HttpService')
 local ThemeManager = {} do
 	ThemeManager.Folder = 'Crisware'
-	-- if not isfolder(Crisware.Folder) then makefolder(Crisware.Folder) end
+	-- if not isfolder(ThemeManager.Folder) then makefolder(ThemeManager.Folder) end
 
 	ThemeManager.Library = nil
 
@@ -17,6 +17,10 @@ local ThemeManager = {} do
 	end
 
 
+	function ThemeManager:SaveDefault(theme)
+		writefile(self.Folder .. '/themes/default.txt', theme)
+	end
+
 	function ThemeManager:CreateThemeManager(groupbox)
 		groupbox:AddLabel('Background color'):AddColorPicker('BackgroundColor', { Default = self.Library.BackgroundColor });
 		groupbox:AddLabel('Main color')	:AddColorPicker('MainColor', { Default = self.Library.MainColor });
@@ -31,9 +35,6 @@ local ThemeManager = {} do
 
 		table.sort(ThemesArray, function(a, b) return self.BuiltInThemes[a][1] < self.BuiltInThemes[b][1] end)
 
-		Options.ThemeManager_ThemeList:OnChanged(function()
-			self:ApplyTheme(Options.ThemeManager_ThemeList.Value)
-		end)
 		local function UpdateTheme()
 			self:ThemeUpdate()
 		end
@@ -45,8 +46,24 @@ local ThemeManager = {} do
 		Options.FontColor:OnChanged(UpdateTheme)
 	end
 
+
 	function ThemeManager:SetLibrary(lib)
 		self.Library = lib
 	end
+
+	function ThemeManager:CreateGroupBox(tab)
+		return tab:AddLeftGroupbox('Themes')
+	end
+
+	function ThemeManager:ApplyToTab(tab)
+		local groupbox = self:CreateGroupBox(tab)
+		self:CreateThemeManager(groupbox)
+	end
+
+	function ThemeManager:ApplyToGroupbox(groupbox)
+		self:CreateThemeManager(groupbox)
+	end
+
+	ThemeManager:BuildFolderTree()
 end
 return ThemeManager

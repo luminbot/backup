@@ -246,7 +246,7 @@ local SaveManager = {} do
 			if isfile(configname) then
 				delfile(configname)
 			end
-			self.Library:Notify(string.format('Set %q to auto load', name))
+			self.Library:Notify(string.format('Deleted %q from config folder', name))
 		end)
 
 		section:AddButton('Refresh config list', function()

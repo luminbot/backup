@@ -240,10 +240,11 @@ local SaveManager = {} do
 			self.Library:Notify(string.format('Overwrote config %q', name))
 		end)
 		
-		section:AddButton('Autoload config', function()
+		section:AddButton('Delete config', function()
 			local name = Options.SaveManager_ConfigList.Value
-			writefile(self.Folder .. '/settings/autoload.txt', name)
-			SaveManager.AutoloadLabel:SetText('Current autoload config: ' .. name)
+			if isfile(name) then
+				delfile(name)
+			end
 			self.Library:Notify(string.format('Set %q to auto load', name))
 		end)
 

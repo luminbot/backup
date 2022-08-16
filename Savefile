@@ -242,8 +242,9 @@ local SaveManager = {} do
 		
 		section:AddButton('Delete config', function()
 			local name = Options.SaveManager_ConfigList.Value
-			if isfile(name) then
-				delfile(name)
+			local configname = self.Folder .. '/settings/' .. name .. '.json'
+			if isfile(configname) then
+				delfile(configname)
 			end
 			self.Library:Notify(string.format('Set %q to auto load', name))
 		end)

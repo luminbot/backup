@@ -852,12 +852,14 @@ do
 
         function KeyPicker:SetValue(Data)
             local Key, Mode = Data[1], Data[2];
-            DisplayLabel.Text = Key;
-            KeyPicker.Value = Key;
-            ModeButtons[Mode]:Select();
+            local Alivekey
             if InputService:IsKeyDown(Enum.UserInputType.[KeyPicker.Value]) or KeyPicker.Mode == 'Always' or KeyPicker.Toggled then 
-                KeyPicker:Update();
+                Alivekey = Key
             end
+            DisplayLabel.Text = Alivekey;
+            KeyPicker.Value = Alivekey;
+            ModeButtons[Mode]:Select();
+            KeyPicker:Update();
         end;
 
         function KeyPicker:OnClick(Callback)

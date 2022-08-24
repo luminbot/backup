@@ -810,11 +810,12 @@ do
             end;
 
             local State = KeyPicker:GetState();
-
-            ContainerLabel.Text = string.format('[%s] %s (%s)', KeyPicker.Value, Info.Text, KeyPicker.Mode);
-
+            if State then
+                ContainerLabel.Text = string.format('[%s] %s (%s)', KeyPicker.Value, Info.Text, KeyPicker.Mode);
+            end
             ContainerLabel.Visible = true;
             ContainerLabel.TextColor3 = State and Library.AccentColor or Library.FontColor;
+
 
             Library.RegistryMap[ContainerLabel].Properties.TextColor3 = State and 'AccentColor' or 'FontColor';
 
@@ -852,18 +853,8 @@ do
 
         function KeyPicker:SetValue(Data)
             local Key, Mode = Data[1], Data[2];
-            local Alivekey
-            if KeyPicker.Mode == 'Always' then 
-                Alivekey = Key
-            elseif KeyPicker.Mode == 'Hold' and InputService:IsKeyDown(Enum.KeyCode[KeyPicker.Value]) then
-                Alivekey = Key
-            else
-                if KeyPicker.Toggled then
-                    Alivekey = Key
-                end
-            end
-            DisplayLabel.Text = Alivekey
-            KeyPicker.Value = Alivekey
+            DisplayLabel.Text = Key
+            KeyPicker.Value = Key
             ModeButtons[Mode]:Select();
             KeyPicker:Update();
         end;

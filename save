@@ -812,6 +812,8 @@ do
             local State = KeyPicker:GetState();
             if State then
                 ContainerLabel.Text = string.format('[%s] %s (%s)', KeyPicker.Value, Info.Text, KeyPicker.Mode);
+            else
+                ContainerLabel.Text = ""
             end
             ContainerLabel.Visible = true;
             ContainerLabel.TextColor3 = State and Library.AccentColor or Library.FontColor;

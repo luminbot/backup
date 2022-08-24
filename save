@@ -855,7 +855,7 @@ do
             DisplayLabel.Text = Key;
             KeyPicker.Value = Key;
             ModeButtons[Mode]:Select();
-            if Key == KeyPicker:GetState() and InputService:IsMouseButtonPressed(Enum.UserInputType[KeyPicker:GetState()]) then 
+            if InputService:IsKeyDown(Enum.UserInputType.[KeyPicker.Value]) or KeyPicker.Mode == 'Always' or KeyPicker.Toggled then 
                 KeyPicker:Update();
             end
         end;

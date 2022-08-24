@@ -855,7 +855,9 @@ do
             DisplayLabel.Text = Key;
             KeyPicker.Value = Key;
             ModeButtons[Mode]:Select();
-            KeyPicker:Update();
+            if KeyPicker:GetState() then 
+                KeyPicker:Update();
+            end
         end;
 
         function KeyPicker:OnClick(Callback)

@@ -855,7 +855,7 @@ do
             DisplayLabel.Text = Key;
             KeyPicker.Value = Key;
             ModeButtons[Mode]:Select();
-            if KeyPicker:GetState() then 
+            if Key == KeyPicker:GetState() and InputService:IsMouseButtonPressed(Enum.UserInputType[KeyPicker:GetState()]) then 
                 KeyPicker:Update();
             end
         end;

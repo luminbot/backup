@@ -6,11 +6,11 @@ local RunService = game:GetService('RunService')
 local RenderStepped = RunService.RenderStepped;
 local LocalPlayer = game:GetService('Players').LocalPlayer;
 local Mouse = LocalPlayer:GetMouse();
-local pingstats = game:service("Stats").PerformanceStats.Ping
+local pingstats = game:service("Stats").PerformanceStats.Ping;
 local ProtectGui = protectgui or (syn and syn.protect_gui) or (function() end);
 local function GetLatency()
 	return pingstats:GetValue() / 1000
-end
+end;
 local ScreenGui = Instance.new('ScreenGui');
 ProtectGui(ScreenGui);
 
@@ -844,7 +844,7 @@ do
             RenderStepped:Connect(functioon(Delta)
                 fpsamount = 1/delta
             end)
-            ContainerLabel.Text = string.format("Fps: %s \nPing: %s \nLatency: %s \nTicks: %s", tostring(math.floor(fpsamount)), tostring(math.floor(pingstats), math.floor(math.ceil(GetLatency() * 1000), math.floor(tick())))
+            ContainerLabel.Text = string.format("Fps: %s \nPing: %s \nLatency: %s \nTicks: %s", tostring(math.floor(fpsamount)), tostring(math.floor(pingstats), math.floor(math.ceil(GetLatency() * 1000), math.floor(tick()))
             ContainerLabel.Visible = true;
             ContainerLabel.TextColor3 = State and Library.AccentColor or Library.FontColor;
 

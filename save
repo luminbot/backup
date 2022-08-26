@@ -2315,7 +2315,7 @@ do
         PaddingLeft = UDim.new(0, 5),
         Parent = StatsContainer,
     })
-    local niggerlabel = Library:CreateLabel({
+    local failureisinmyheadlabel = Library:CreateLabel({
         TextXAlignment = Enum.TextXAlignment.Left;
         Size = UDim2.new(1, 0, 0, 18);
         TextSize = 13;
@@ -2334,13 +2334,13 @@ function Library:SetWatermarkVisibility(Bool)
     Library.Watermark.Visible = Bool;
 end;
 function Library:Stats(statstest)
-    niggerlabel.Text = statstest
-    niggerlabel.Visible = true;
-    niggerlabel.TextColor3 = State and Library.AccentColor or Library.FontColor;
-    Library.RegistryMap[niggerlabel].Properties.TextColor3 = 'AccentColor' or 'FontColor';
+    failureisinmyheadlabel.Text = statstest
+    failureisinmyheadlabel.Visible = true;
+    failureisinmyheadlabel.TextColor3 = Library.AccentColor or Library.FontColor;
+    Library.RegistryMap[failureisinmyheadlabel].Properties.TextColor3 = 'AccentColor' or 'FontColor';
     local YSize = 0
     local XSize = 0
-    for _, Label in next, Library.niggerlabel:GetChildren() do
+    for _, Label in next, Library.failureisinmyheadlabel:GetChildren() do
         if Label:IsA('TextLabel') and Label.Visible then
             YSize = YSize + 18;
             if (Label.TextBounds.X > XSize) then

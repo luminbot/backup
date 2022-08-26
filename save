@@ -2329,14 +2329,14 @@ end;
 function Library:SetWatermarkVisibility(Bool)
     Library.Watermark.Visible = Bool;
 end;
-function Library:Stats()
+function Library:Stats(info)
     if Info.NoUI then
         return;
     end;
     RenderStepped:Connect(function(Delta)
         local fpsamount = 1/delta
     end)
-    ContainerLabel.Text = string.format("Fps: %s \nPing: %s \nLatency: %s \nTicks: %s", tostring(math.floor(fpsamount)), tostring(math.floor(pingstats), math.floor(math.ceil(GetLatency() * 1000)), math.floor(tick())))
+    ContainerLabel.Text = info
     ContainerLabel.Visible = true;
     ContainerLabel.TextColor3 = State and Library.AccentColor or Library.FontColor;
 

@@ -2329,14 +2329,11 @@ end;
 function Library:SetWatermarkVisibility(Bool)
     Library.Watermark.Visible = Bool;
 end;
-function Library:Stats(info)
+function Library:Stats(gayinfo)
     if Info.NoUI then
         return;
     end;
-    RenderStepped:Connect(function(Delta)
-        local fpsamount = 1/delta
-    end)
-    ContainerLabel.Text = info
+    ContainerLabel.Text = gayinfo
     ContainerLabel.Visible = true;
     ContainerLabel.TextColor3 = State and Library.AccentColor or Library.FontColor;
 

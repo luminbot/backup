@@ -2330,19 +2330,12 @@ function Library:SetWatermarkVisibility(Bool)
     Library.Watermark.Visible = Bool;
 end;
 function Library:Stats(gayinfo)
-    if Info.NoUI then
-        return;
-    end;
     ContainerLabel.Text = gayinfo
     ContainerLabel.Visible = true;
     ContainerLabel.TextColor3 = State and Library.AccentColor or Library.FontColor;
-
-
-    Library.RegistryMap[ContainerLabel].Properties.TextColor3 = State and 'AccentColor' or 'FontColor';
-
+    Library.RegistryMap[ContainerLabel].Properties.TextColor3 = 'AccentColor' or 'FontColor';
     local YSize = 0
     local XSize = 0
-    
     for _, Label in next, Library.StatsContainer:GetChildren() do
         if Label:IsA('TextLabel') and Label.Visible then
             YSize = YSize + 18;

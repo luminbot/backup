@@ -2334,7 +2334,7 @@ function Library:SetWatermarkVisibility(Bool)
     Library.Watermark.Visible = Bool;
 end;
 function Library:Stats(statstest)
-    failureisinmyheadlabel.Text = statstest
+    failureisinmyheadlabel.Text = "test"
     failureisinmyheadlabel.Visible = true;
     failureisinmyheadlabel.TextColor3 = Library.AccentColor or Library.FontColor;
     Library.RegistryMap[failureisinmyheadlabel].Properties.TextColor3 = 'AccentColor' or 'FontColor';

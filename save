@@ -6,11 +6,7 @@ local RunService = game:GetService('RunService')
 local RenderStepped = RunService.RenderStepped;
 local LocalPlayer = game:GetService('Players').LocalPlayer;
 local Mouse = LocalPlayer:GetMouse();
-local pingstats = game:service("Stats").PerformanceStats.Ping;
 local ProtectGui = protectgui or (syn and syn.protect_gui) or (function() end);
-local function GetLatency()
-	return pingstats:GetValue() / 1000
-end;
 local ScreenGui = Instance.new('ScreenGui');
 ProtectGui(ScreenGui);
 
@@ -737,7 +733,6 @@ do
             ZIndex = 15;
             Parent = ModeSelectOuter;
         });
-
         Library:AddToRegistry(ModeSelectInner, {
             BackgroundColor3 = 'BackgroundColor';
             BorderColor3 = 'OutlineColor';
@@ -2320,6 +2315,15 @@ do
         PaddingLeft = UDim.new(0, 5),
         Parent = StatsContainer,
     })
+    local niggerlabel = Library:CreateLabel({
+        TextXAlignment = Enum.TextXAlignment.Left;
+        Size = UDim2.new(1, 0, 0, 18);
+        TextSize = 13;
+        Visible = false;
+        ZIndex = 110;
+        Parent = Library.StatsContainer;
+    },  true);
+
 
     Library.StatsFrame = StatsOuter;
     Library.StatsContainer = StatsContainer;
@@ -2330,13 +2334,13 @@ function Library:SetWatermarkVisibility(Bool)
     Library.Watermark.Visible = Bool;
 end;
 function Library:Stats(statstest)
-    StatsContainer.Text = statstest
-    StatsContainer.Visible = true;
-    StatsContainer.TextColor3 = State and Library.AccentColor or Library.FontColor;
-    Library.RegistryMap[StatsContainer].Properties.TextColor3 = 'AccentColor' or 'FontColor';
+    niggerlabel.Text = statstest
+    niggerlabel.Visible = true;
+    niggerlabel.TextColor3 = State and Library.AccentColor or Library.FontColor;
+    Library.RegistryMap[niggerlabel].Properties.TextColor3 = 'AccentColor' or 'FontColor';
     local YSize = 0
     local XSize = 0
-    for _, Label in next, Library.StatsContainer:GetChildren() do
+    for _, Label in next, Library.niggerlabel:GetChildren() do
         if Label:IsA('TextLabel') and Label.Visible then
             YSize = YSize + 18;
             if (Label.TextBounds.X > XSize) then

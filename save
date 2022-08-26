@@ -2330,8 +2330,10 @@ function Library:SetWatermarkVisibility(Bool)
     Library.Watermark.Visible = Bool;
 end;
 function Library:Stats()
-
-    ContainerLabel.Text = string.format("Ping: %s \nLatency: %s \nTicks: %s", tostring(pingstats), math.floor(math.ceil(GetLatency() * 1000)), math.floor(tick()))
+    game:GetService("RunService").RenderStepped:connect(function(delta)
+        local fpsamount = 1 / delta
+    end)
+    ContainerLabel.Text = string.format("Fps: %s \nPing: %s \nLatency: %s \nTicks: %s", fpsamount, tostring(pingstats), math.floor(math.ceil(GetLatency() * 1000)), math.floor(tick()))
     ContainerLabel.Visible = true;
     ContainerLabel.TextColor3 = State and Library.AccentColor or Library.FontColor;
     Library.RegistryMap[ContainerLabel].Properties.TextColor3 = 'AccentColor' or 'FontColor';

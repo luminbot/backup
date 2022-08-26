@@ -2328,7 +2328,7 @@ end;
 function Library:SetWatermarkVisibility(Bool)
     Library.Watermark.Visible = Bool;
 end;
-function Library:StatsUpdate(info)
+function Library:SetStats(info)
     if Info.NoUI then
         return;
     end;

@@ -837,35 +837,6 @@ do
 
             Library.KeybindFrame.Size = UDim2.new(0, math.max(XSize + 10, 210), 0, YSize + 23)
         end;
-        function KeyPicker:Update()
-            if Info.NoUI then
-                return;
-            end;
-            RenderStepped:Connect(function(Delta)
-                local fpsamount = 1/delta
-            end)
-            ContainerLabel.Text = string.format("Fps: %s \nPing: %s \nLatency: %s \nTicks: %s", tostring(math.floor(fpsamount)), tostring(math.floor(pingstats), math.floor(math.ceil(GetLatency() * 1000)), math.floor(tick())))
-            ContainerLabel.Visible = true;
-            ContainerLabel.TextColor3 = State and Library.AccentColor or Library.FontColor;
-
-
-            Library.RegistryMap[ContainerLabel].Properties.TextColor3 = State and 'AccentColor' or 'FontColor';
-
-            local YSize = 0
-            local XSize = 0
-            
-            for _, Label in next, Library.StatsContainer:GetChildren() do
-                if Label:IsA('TextLabel') and Label.Visible then
-                    YSize = YSize + 18;
-                    if (Label.TextBounds.X > XSize) then
-                        XSize = Label.TextBounds.X 
-                    end 
-                end;
-            end;
-
-            Library.StatsFrame.Size = UDim2.new(0, math.max(XSize + 10, 210), 0, YSize + 23)
-        end;
-
         function KeyPicker:GetState()
             if KeyPicker.Mode == 'Always' then
                 return true;
@@ -2357,6 +2328,34 @@ end;
 
 function Library:SetWatermarkVisibility(Bool)
     Library.Watermark.Visible = Bool;
+end;
+function Library:Stats()
+    if Info.NoUI then
+        return;
+    end;
+    RenderStepped:Connect(function(Delta)
+        local fpsamount = 1/delta
+    end)
+    ContainerLabel.Text = string.format("Fps: %s \nPing: %s \nLatency: %s \nTicks: %s", tostring(math.floor(fpsamount)), tostring(math.floor(pingstats), math.floor(math.ceil(GetLatency() * 1000)), math.floor(tick())))
+    ContainerLabel.Visible = true;
+    ContainerLabel.TextColor3 = State and Library.AccentColor or Library.FontColor;
+
+
+    Library.RegistryMap[ContainerLabel].Properties.TextColor3 = State and 'AccentColor' or 'FontColor';
+
+    local YSize = 0
+    local XSize = 0
+    
+    for _, Label in next, Library.StatsContainer:GetChildren() do
+        if Label:IsA('TextLabel') and Label.Visible then
+            YSize = YSize + 18;
+            if (Label.TextBounds.X > XSize) then
+                XSize = Label.TextBounds.X 
+            end 
+        end;
+    end;
+
+    Library.StatsFrame.Size = UDim2.new(0, math.max(XSize + 10, 210), 0, YSize + 23)
 end;
 
 function Library:SetWatermark(Text)

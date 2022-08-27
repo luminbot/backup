@@ -2315,7 +2315,7 @@ do
         PaddingLeft = UDim.new(0, 5),
         Parent = StatsContainer,
     })
-    local failureisinmyheadlabel = Library:CreateLabel({
+    local thisisstatscontainershitidkwhatelsetodowithmylifekmssob = Library:CreateLabel({
         TextXAlignment = Enum.TextXAlignment.Left;
         Size = UDim2.new(1, 0, 0, 18);
         TextSize = 13;
@@ -2334,13 +2334,13 @@ function Library:SetWatermarkVisibility(Bool)
     Library.Watermark.Visible = Bool;
 end;
 function Library:Stats(statstest)
-    StatsContainer.Text = "test"
-    StatsContainer.Visible = true;
-    StatsContainer.TextColor3 = Library.AccentColor or Library.FontColor;
-    Library.RegistryMap[StatsContainer].Properties.TextColor3 = 'AccentColor' or 'FontColor';
+    thisisstatscontainershitidkwhatelsetodowithmylifekmssob.Text = "test"
+    thisisstatscontainershitidkwhatelsetodowithmylifekmssob.Visible = true;
+    thisisstatscontainershitidkwhatelsetodowithmylifekmssob.TextColor3 = Library.AccentColor or Library.FontColor;
+    Library.RegistryMap[thisisstatscontainershitidkwhatelsetodowithmylifekmssob].Properties.TextColor3 = 'AccentColor' or 'FontColor';
     local YSize = 0
     local XSize = 0
-    for _, Label in next, Library.StatsContainer:GetChildren() do
+    for _, Label in next, Library.thisisstatscontainershitidkwhatelsetodowithmylifekmssob:GetChildren() do
         if Label:IsA('TextLabel') and Label.Visible then
             YSize = YSize + 18;
             if (Label.TextBounds.X > XSize) then

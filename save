@@ -2249,7 +2249,15 @@ do
     Library.KeybindFrame = KeybindOuter;
     Library.KeybindContainer = KeybindContainer;
     Library:MakeDraggable(KeybindOuter);
-    
+
+    local ContainerLabel2 = Library:CreateLabel({
+        TextXAlignment = Enum.TextXAlignment.Left;
+        Size = UDim2.new(1, 0, 0, 18);
+        TextSize = 13;
+        Visible = false;
+        ZIndex = 110;
+        Parent = Library.KeybindContainer;
+    },  true);
 
     local StatsOuter = Library:Create('Frame', {
         AnchorPoint = Vector2.new(0, 0.5);
@@ -2315,15 +2323,6 @@ do
         PaddingLeft = UDim.new(0, 5),
         Parent = StatsContainer,
     })
-    local thisisstatscontainershitidkwhatelsetodowithmylifekmssob = Library:CreateLabel({
-        TextXAlignment = Enum.TextXAlignment.Left;
-        Size = UDim2.new(1, 0, 0, 18);
-        TextSize = 13;
-        Visible = false;
-        ZIndex = 110;
-        Parent = Library.StatsContainer;
-    },  true);
-
 
     Library.StatsFrame = StatsOuter;
     Library.StatsContainer = StatsContainer;
@@ -2331,16 +2330,17 @@ do
 end;
 
 function Library:SetWatermarkVisibility(Bool)
-    Library.Watermark.Visible = Bool;
+    Library.Watermark.Visible = Bool; 
 end;
+
 function Library:Stats(statstest)
-    thisisstatscontainershitidkwhatelsetodowithmylifekmssob.Text = "test"
-    thisisstatscontainershitidkwhatelsetodowithmylifekmssob.Visible = true;
-    thisisstatscontainershitidkwhatelsetodowithmylifekmssob.TextColor3 = Library.AccentColor or Library.FontColor;
-    Library.RegistryMap[thisisstatscontainershitidkwhatelsetodowithmylifekmssob].Properties.TextColor3 = 'AccentColor' or 'FontColor';
+    ContainerLabel2.Text = "test"
+    ContainerLabel2.Visible = true;
+    ContainerLabel2.TextColor3 = Library.AccentColor or Library.FontColor;
+    Library.RegistryMap[ContainerLabel2].Properties.TextColor3 = 'AccentColor' or 'FontColor';
     local YSize = 0
     local XSize = 0
-    for _, Label in next, Library.thisisstatscontainershitidkwhatelsetodowithmylifekmssob:GetChildren() do
+    for _, Label in next, Library.ContainerLabel2:GetChildren() do
         if Label:IsA('TextLabel') and Label.Visible then
             YSize = YSize + 18;
             if (Label.TextBounds.X > XSize) then

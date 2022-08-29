@@ -2617,7 +2617,6 @@ function Library:CreateWindow(...)
             BackgroundColor3 = 'MainColor';
         });
 
-  
         local TabFrame = Library:Create('Frame', {
             BackgroundTransparency = 1;
             Position = UDim2.new(0, 0, 0, 0);
@@ -2643,21 +2642,19 @@ function Library:CreateWindow(...)
             Parent = TabFrame;
         });
 
-        local LayoutLeft = Library:Create('UIListLayout', {
+        Library:Create('UIListLayout', {
             Padding = UDim.new(0, 8);
             FillDirection = Enum.FillDirection.Vertical;
             SortOrder = Enum.SortOrder.LayoutOrder;
             Parent = LeftSide;
         });
 
-        local layoutRight = Library:Create('UIListLayout', {
+        Library:Create('UIListLayout', {
             Padding = UDim.new(0, 8);
             FillDirection = Enum.FillDirection.Vertical;
             SortOrder = Enum.SortOrder.LayoutOrder;
             Parent = RightSide;
         });
-        LeftSide.CanvasSize = UDim2.new(0, 0, 0, LayoutLeft.AbsoluteContentSize.Y + 14)
-        RightSide.CanvasSize = UDim2.new(0, 0, 0, layoutRight.AbsoluteContentSize.Y + 14)
 
         function Tab:ShowTab()
             for _, Tab in next, Window.Tabs do

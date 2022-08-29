@@ -2632,6 +2632,7 @@ function Library:CreateWindow(...)
             Size = UDim2.new(0.5, -12, 0, 507);
             ZIndex = 2;
             Parent = TabFrame;
+            ScrollBarThickness = 0
         });
 
         local RightSide = Library:Create('ScrollingFrame', {
@@ -2640,6 +2641,7 @@ function Library:CreateWindow(...)
             Size = UDim2.new(0.5, -12, 0, 507);
             ZIndex = 2;
             Parent = TabFrame;
+            ScrollBarThickness = 0
         });
 
         Library:Create('UIListLayout', {

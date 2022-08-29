@@ -2635,8 +2635,6 @@ function Library:CreateWindow(...)
             ScrollBarThickness = 0
         });
 
-    
-
         local RightSide = Library:Create('ScrollingFrame', {
             BackgroundTransparency = 1;
             Position = UDim2.new(0.5, 4, 0, 8);
@@ -2658,9 +2656,7 @@ function Library:CreateWindow(...)
             SortOrder = Enum.SortOrder.LayoutOrder;
             Parent = RightSide;
         });
-        
-        LeftSide.CanvasSize = UDim2.new(0, 0, 0, layout.AbsoluteContentSize.Y + 14)
-        RightSide.CanvasSize = UDim2.new(0, 0, 0, layout2.AbsoluteContentSize.Y + 14)
+    
 
         function Tab:ShowTab()
             for _, Tab in next, Window.Tabs do

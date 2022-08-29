@@ -2633,7 +2633,6 @@ function Library:CreateWindow(...)
             ZIndex = 2;
             Parent = TabFrame;
             ScrollBarThickness = 0
-            AutomaticSize = Enum.AutomaticSize.Y
         });
 
         local RightSide = Library:Create('ScrollingFrame', {
@@ -2643,7 +2642,6 @@ function Library:CreateWindow(...)
             ZIndex = 2;
             Parent = TabFrame;
             ScrollBarThickness = 0;
-            AutomaticSize = Enum.AutomaticSize.Y
         });
 
         Library:Create('UIListLayout', {

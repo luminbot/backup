@@ -2653,14 +2653,16 @@ function Library:CreateWindow(...)
             Parent = LeftSide;
         });
 
+        LeftSide.CanvasSize = UDim2.new(0, 0, 0, leftlayout.AbsoluteCanvasSize.Y + 14)
 
-        local leftlayout = Library:Create('UIListLayout', {
+        local RightLayout = Library:Create('UIListLayout', {
             Padding = UDim.new(0, 8);
             FillDirection = Enum.FillDirection.Vertical;
             SortOrder = Enum.SortOrder.LayoutOrder;
             Parent = RightSide;
         });
         
+        RightSide.CanvasSize = UDim2.new(0, 0, 0, RightLayout.AbsoluteCanvasSize.Y + 14)
 
         function Tab:ShowTab()
             for _, Tab in next, Window.Tabs do

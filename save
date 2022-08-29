@@ -2635,6 +2635,8 @@ function Library:CreateWindow(...)
             ScrollBarThickness = 0
         });
 
+        LeftSide.CanvasSize = UDim2.new(0, 0, 0, layout.AbsoluteContentSize.Y + 14)
+
         local RightSide = Library:Create('ScrollingFrame', {
             BackgroundTransparency = 1;
             Position = UDim2.new(0.5, 4, 0, 8);
@@ -2643,6 +2645,8 @@ function Library:CreateWindow(...)
             Parent = TabFrame;
             ScrollBarThickness = 0;
         });
+
+        RightSide.CanvasSize = UDim2.new(0, 0, 0, layout.AbsoluteContentSize.Y + 14)
 
         Library:Create('UIListLayout', {
             Padding = UDim.new(0, 8);

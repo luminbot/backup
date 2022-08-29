@@ -2644,23 +2644,20 @@ function Library:CreateWindow(...)
             ScrollBarThickness = 0;
         });
 
-        local leftlayout = Library:Create('UIListLayout', {
+        Library:Create('UIListLayout', {
             Padding = UDim.new(0, 8);
             FillDirection = Enum.FillDirection.Vertical;
             SortOrder = Enum.SortOrder.LayoutOrder;
             Parent = LeftSide;
         });
 
-        LeftSide.CanvasSize = UDim2.new(0, 0, 0, leftlayout.AbsoluteContentSize.Y + 14)
-
-        local Rightlayout = Library:Create('UIListLayout', {
+        Library:Create('UIListLayout', {
             Padding = UDim.new(0, 8);
             FillDirection = Enum.FillDirection.Vertical;
             SortOrder = Enum.SortOrder.LayoutOrder;
             Parent = RightSide;
         });
-        
-        RightSide.CanvasSize = UDim2.new(0, 0, 0, Rightlayout.AbsoluteContentSize.Y + 14)
+
 
         function Tab:ShowTab()
             for _, Tab in next, Window.Tabs do

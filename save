@@ -2658,6 +2658,8 @@ function Library:CreateWindow(...)
             SortOrder = Enum.SortOrder.LayoutOrder;
             Parent = RightSide;
         });
+        LeftSide.CanvasSize = UDim2.new(0, 0, 0, LayoutLeft.AbsoluteContentSize.Y + 14)
+        RightSide.CanvasSize = UDim2.new(0, 0, 0, layoutRight.AbsoluteContentSize.Y + 14)
 
         function Tab:ShowTab()
             for _, Tab in next, Window.Tabs do

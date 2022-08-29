@@ -2536,6 +2536,7 @@ function Library:CreateWindow(...)
             Size = UDim2.new(0.5, -12, 0, 507);
             ZIndex = 2;
             Parent = TabFrame;
+            ScrollBarThickness = 0;
         });
 
         local RightSide = Library:Create('ScrollingFrame', {
@@ -2544,21 +2545,25 @@ function Library:CreateWindow(...)
             Size = UDim2.new(0.5, -12, 0, 507);
             ZIndex = 2;
             Parent = TabFrame;
+            ScrollBarThickness = 0;
         });
 
-        Library:Create('UIListLayout', {
+        local LayoutLeft = Library:Create('UIListLayout', {
             Padding = UDim.new(0, 8);
             FillDirection = Enum.FillDirection.Vertical;
             SortOrder = Enum.SortOrder.LayoutOrder;
             Parent = LeftSide;
         });
 
-        Library:Create('UIListLayout', {
+        local layoutRight = Library:Create('UIListLayout', {
             Padding = UDim.new(0, 8);
             FillDirection = Enum.FillDirection.Vertical;
             SortOrder = Enum.SortOrder.LayoutOrder;
             Parent = RightSide;
         });
+
+        LeftSide.CanvasSize = UDim2.new(0, 0, 0, LayoutLeft.AbsoluteContentSize.Y + 3)
+        RightSide.CanvasSize = UDim2.new(0, 0, 0, layoutRight.AbsoluteContentSize.Y + 3)
 
         function Tab:ShowTab()
             for _, Tab in next, Window.Tabs do

@@ -2617,6 +2617,7 @@ function Library:CreateWindow(...)
             BackgroundColor3 = 'MainColor';
         });
 
+  
         local TabFrame = Library:Create('Frame', {
             BackgroundTransparency = 1;
             Position = UDim2.new(0, 0, 0, 0);
@@ -2641,7 +2642,7 @@ function Library:CreateWindow(...)
             Size = UDim2.new(0.5, -12, 0, 507);
             ZIndex = 2;
             Parent = TabFrame;
-            ScrollBarThickness = 0;
+            ScrollBarThickness = 0
         });
 
         Library:Create('UIListLayout', {
@@ -2650,7 +2651,6 @@ function Library:CreateWindow(...)
             SortOrder = Enum.SortOrder.LayoutOrder;
             Parent = LeftSide;
         });
-
 
         Library:Create('UIListLayout', {
             Padding = UDim.new(0, 8);

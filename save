@@ -2647,16 +2647,20 @@ function Library:CreateWindow(...)
         });
 
         local layout = Library:Create('UIListLayout', {
-            Padding = UDim.new(0, 2),
-            Parent = LeftSide,
+            Padding = UDim.new(0, 8);
+            FillDirection = Enum.FillDirection.Vertical;
+            SortOrder = Enum.SortOrder.LayoutOrder;
+            Parent = LeftSide;
         });
         local layout1 = Library:Create('UIListLayout', {
-            Padding = UDim.new(0, 2),
-            Parent = RightSide,
+            Padding = UDim.new(0, 8);
+            FillDirection = Enum.FillDirection.Vertical;
+            SortOrder = Enum.SortOrder.LayoutOrder;
+            Parent = RightSide;
         });
         
-        LeftSide.CanvasSize = UDim2.new(0, 0, 0, 8 + layout.AbsoluteContentSize.Y)
-        RightSide.CanvasSize = UDim2.new(0, 0, 0, 8 + layout1.AbsoluteContentSize.Y)
+        LeftSide.CanvasSize = UDim2.new(0, 0, 0, layout.AbsoluteContentSize.Y + 14)
+        RightSide.CanvasSize = UDim2.new(0, 0, 0, layout2.AbsoluteContentSize.Y + 14)
 
         function Tab:ShowTab()
             for _, Tab in next, Window.Tabs do

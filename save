@@ -2635,7 +2635,7 @@ function Library:CreateWindow(...)
             ScrollBarThickness = 0
         });
 
-        LeftSide.CanvasSize = UDim2.new(0, 0, 0, layout.AbsoluteContentSize.Y + 14)
+    
 
         local RightSide = Library:Create('ScrollingFrame', {
             BackgroundTransparency = 1;
@@ -2646,21 +2646,23 @@ function Library:CreateWindow(...)
             ScrollBarThickness = 0;
         });
 
-        RightSide.CanvasSize = UDim2.new(0, 0, 0, layout.AbsoluteContentSize.Y + 14)
-
-        Library:Create('UIListLayout', {
+        local leftlayout = Library:Create('UIListLayout', {
             Padding = UDim.new(0, 8);
             FillDirection = Enum.FillDirection.Vertical;
             SortOrder = Enum.SortOrder.LayoutOrder;
             Parent = LeftSide;
         });
 
-        Library:Create('UIListLayout', {
+        LeftSide.CanvasSize = UDim2.new(0, 0, 0, leftlayout.AbsoluteContentSize.Y + 14)
+
+        local leftlayout = Library:Create('UIListLayout', {
             Padding = UDim.new(0, 8);
             FillDirection = Enum.FillDirection.Vertical;
             SortOrder = Enum.SortOrder.LayoutOrder;
             Parent = RightSide;
         });
+        
+        RightSide.CanvasSize = UDim2.new(0, 0, 0, leftlayout.AbsoluteContentSize.Y + 14)
 
         function Tab:ShowTab()
             for _, Tab in next, Window.Tabs do

@@ -2645,14 +2645,14 @@ function Library:CreateWindow(...)
             ScrollBarThickness = 0
         });
 
-        Library:Create('UIListLayout', {
+        local LayoutLeft = Library:Create('UIListLayout', {
             Padding = UDim.new(0, 8);
             FillDirection = Enum.FillDirection.Vertical;
             SortOrder = Enum.SortOrder.LayoutOrder;
             Parent = LeftSide;
         });
 
-        Library:Create('UIListLayout', {
+        local layoutRight = Library:Create('UIListLayout', {
             Padding = UDim.new(0, 8);
             FillDirection = Enum.FillDirection.Vertical;
             SortOrder = Enum.SortOrder.LayoutOrder;
@@ -3032,4 +3032,3 @@ function Library:CreateWindow(...)
 end;
 
 return Library
- 

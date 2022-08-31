@@ -215,6 +215,12 @@ local SaveManager = {} do
 
 			self.Library:Notify(string.format('Loaded config %q', name))
 		end)
+		section:AddButton('Refresh config list', function()
+			Options.SaveManager_ConfigList.Values = self:RefreshConfigList()
+			Options.SaveManager_ConfigList:SetValues()
+			Options.SaveManager_ConfigList:SetValue(nil)
+		end)
+
 
 		section:AddButton('Overwrite config', function()
 			local name = Options.SaveManager_ConfigList.Value
@@ -234,12 +240,6 @@ local SaveManager = {} do
 				delfile(configname)
 			end
 			self.Library:Notify(string.format('Deleted %q from config folder', name))
-		end)
-
-		section:AddButton('Refresh config list', function()
-			Options.SaveManager_ConfigList.Values = self:RefreshConfigList()
-			Options.SaveManager_ConfigList:SetValues()
-			Options.SaveManager_ConfigList:SetValue(nil)
 		end)
 
 		SaveManager:SetIgnoreIndexes({ 'SaveManager_ConfigList', 'SaveManager_ConfigName' })

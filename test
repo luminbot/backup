@@ -357,7 +357,7 @@ do
 
         for _, Element in next, Container:GetChildren() do
             if not Element:IsA('UIListLayout') then
-                RelativeOffset = RelativeOffset + Element.Size.Y;
+                RelativeOffset = RelativeOffset + (Container.Parent.Size.Y.Offset - Element.Size.Y.Offset);
             end;
         end;
 

@@ -680,8 +680,6 @@ do
             Info.Mode = 'Toggle'
         end
 
-        local RelativeOffset = 0;
-
 
         local PickOuter = Library:Create('Frame', {
             BorderColor3 = Color3.new(0, 0, 0);
@@ -716,7 +714,7 @@ do
         local ModeSelectOuter = Library:Create('Frame', {
             BorderColor3 = Color3.new(0, 0, 0);
             Position = UDim2.new(1, 0, 0, 1);
-            Size = UDim2.new(0, 60, 0, 45 + 2);
+            Size = UDim2.new(0, 60, 0, 45);
             Visible = false;
             ZIndex = 14;
             Parent = Container.Parent;

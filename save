@@ -2533,17 +2533,17 @@ function Library:CreateWindow(...)
         local LeftSide = Library:Create('ScrollingFrame', {
             BackgroundTransparency = 1;
             Position = UDim2.new(0, 8, 0, 8);
-            Size = UDim2.new(0.5, -12, 0, 507);
             ScrollBarThickness = 0;
+            Size = UDim2.new(0.5, -12, 0, 507);
             ZIndex = 2;
             Parent = TabFrame;
         });
 
         local RightSide = Library:Create('ScrollingFrame', {
             BackgroundTransparency = 1;
-            Position = UDim2.new(0.5, 4, 0, 8);
-            Size = UDim2.new(0.5, -12, 0, 507);
+            Position = UDim2.new(0, 8, 0, 8);
             ScrollBarThickness = 0;
+            Size = UDim2.new(0.5, -12, 0, 507);
             ZIndex = 2;
             Parent = TabFrame;
         });
